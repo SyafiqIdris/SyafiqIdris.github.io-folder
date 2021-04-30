@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formal Invitation</title>
+</head>
+<style type="text/css">
+	body{
+		display: grid;
+		width: 100%;
+		height: 100vh;
+		grid-template-columns: 35% 60% 5%;
+		grid-template-areas: 
+		"left preview-container right"
+		"input preview-container right";
+
+	}
+	#left{
+		grid-area: left;
+		margin-top: 10vh;
+	}
+	#preview-container{
+		grid-area: preview-container;
+	}
+	#input{
+		grid-area: input;
+	}
+	#right{
+		grid-area: right;
+	}
+	table {
+			position: absolute;
+			width: 10vh;
+			height: 50vh;
+			border-collapse: collapse;
+			top: 5%;
+		}
+		#preview-container {
+			width: 50vh;
+			height: 50vh;
+			position: absolute;
+			left: 50%;
+			top: 5%;
+			border:1px solid black;
+			text-align: center;
+		}
+		#pv-companyname,#pv-event,#pv-time,#pv-eventDate,#pv-firstaddress {
+			border:1px solid red;
+			position: relative;
+			margin: auto;
+			height: 20%;
+			width: 50%;
+			overflow: auto;
+		}
+		#box {
+  width: 500px;
+  height: 200px;
+  border: 2px solid rgb(245, 220, 225);
+  padding: 4px 6px;
+  font: 16px "Lucida Grande", "Helvetica", "Arial", "sans-serif"
+}
+
+
+</style>
+<body>
+
+<div id="left" class="kelas">
+	<div id="color">
+		<label for="warnaBckg">pilih warna background: </label>
+		<input type="color" value="#ffffff" id="warnaBckg"><br><br>
+	</div>
+
+<div id="input" class="kelas">
+	<form id=form>
+		<label for="companyname">Company Name</label>
+		<input type="text" name="companyname" id="companyname" onkeyup="showcompany()"><br>
+		<label for="event">Event</label>
+		<input type="text" name="event" id="event" onkeyup="showevent()"><br>
+		<label for="eventDate">Event Date</label>
+		<input type="date" name="eventDate" id="eventDate" onchange ="date()"><br>
+		<label for="eventtime">Time</label>
+		<input type="time" name="eventtime" id="eventtime" onchange="time()"><br>
+		<label for="firstaddress">First Line Address</label>
+		<input type="text" name="firstaddress" id="firstaddress" onkeyup="showfirstaddress()"><br>
+		<label for="secondaddress">Second Line Address</label>
+		<input type="text" name="secondaddress" id="secondaddress" onkeyup="showsecondaddress()">
+	</form>
+</div>
+
+<div id="preview-container" class="kelas">
+	<div>
+		<div style="color: rgb(28, 71, 163); font-family: &quot;Josefin Sans&quot;; font-size: 18px;">﻿Join us to celebrate</div>
+		<div id="pv-companyname">[Company Name]</div>
+		<div id="pv-event">[Event]</div>
+		<div style="font-family: &quot;Josefin Sans&quot;; color: rgb(28, 71, 163); font-size: 18px;" id="pv-eventDate">[Date]</div>
+		<div id="pv-time">[Time]</div>
+		<div id="pv-firstaddress">[First Line Address]</div>
+		<div id="pv-secondaddress">[Second Line Address]</div>
+	</div>
+	
+</div>
+
+<div id="right" class="kelas">
+	
+</div>
+
+
+<script type="text/javascript">
+	let colorBckg = document.getElementById("warnaBckg");
+		let box = document.getElementById("preview-container");
+		let output = document.getElementById("preview-container");
+
+		box.style.backgroundColor = colorBckg.value;
+
+		colorBckg.addEventListener("input", function(event) {
+  		box.style.backgroundColor = event.target.value;
+		}, false);
+
+		function showevent (){
+			txtarea1 = document.getElementById('event');
+			viewHtml = document.getElementById('pv-event');
+			viewHtml.innerHTML = txtarea1.value;
+		}
+
+		function showcompany (){
+			txtarea2 = document.getElementById('companyname');
+			viewHtml2 = document.getElementById('pv-companyname');
+			viewHtml2.innerHTML = txtarea2.value;
+		}
+
+
+		function date (){
+			date = document.getElementById('eventDate');
+			pvdate = document.getElementById('pv-eventDate');
+			pvdate.innerHTML = date.value;
+		}
+		function time (){
+			time = document.getElementById('eventtime');
+			pvtime = document.getElementById('pv-time');
+			pvtime.innerHTML = time.value;
+		}
+		function showfirstaddress (){
+			txtarea3 = document.getElementById('firstaddress');
+			viewHtml3 = document.getElementById('pv-firstaddress');
+			viewHtml3.innerHTML = txtarea3.value;
+		}
+		function showsecondaddress (){
+			txtarea3 = document.getElementById('secondaddress');
+			viewHtml3 = document.getElementById('pv-secondaddress');
+			viewHtml3.innerHTML = txtarea3.value;
+		}
+
+		
+</script>
+
+</body>
+</html>
